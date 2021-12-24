@@ -7,5 +7,4 @@ module.exports.toHash = (plaintext) => {
 }
 module.exports.compareHash = (plaintext, hashtext) => {
     return bcrypt.compareSync(plaintext, hashtext);
-
 }
