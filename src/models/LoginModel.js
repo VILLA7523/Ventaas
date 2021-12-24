@@ -9,7 +9,7 @@ class LoginModel {
         const con = connectionDb.promise();
         const data = await con.query ("call verify_login (?)" , [Email]);
         const contr =  data[0][0][0].Contrasena;
-        console.log(data[0][0]);
+        console.log(data[0][0][0]);
         if(tools.compareHash(Password, contr)){
             return { status: "ok", id: data[0][0][0].DNI};
         }
