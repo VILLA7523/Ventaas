@@ -117,7 +117,7 @@ router.get("/VerProducto/:id", async(req,res)=> {
   router.get("/VerPedidos", async(req,res)=> {  
     const token = req.cookies.tokenUser;
     const pedido = await UsuarioDb.getAllPedidos(token);
-    console.log("pedidosssssssssss" , pedido);
+    console.log("pedidoooooooooooooooooooooooooooooooooo" , pedido);
     res.render("VerPedidos" , {tittle : "express" , pedidos : pedido})
   })
 
