@@ -5,7 +5,8 @@ const ProductsDb = new ProductsController();
 
 router.get("/products", async (req, res) => {
     const output = ProductsDb.getAll();
-    res.render('products-report',{data : output})
+    console.log(output);
+    res.render('products-report', {data : output})
 });
 
 router.get('/products/create/', async (req, res) => {

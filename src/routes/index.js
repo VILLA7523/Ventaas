@@ -14,7 +14,7 @@ router.get("/login", async function (req, res, next) {
 router.get("/HacerPedido", async function (req, res, next) {
     const token = req.cookies.tokenUser;
     const data = await UsuarioDb.GetDirecciones(token);
-    res.render("HacerPedido", { title: "Express" , data });
+    res.render("HacerPedido", { title: "Express" , direcciones : data });
 });
 
 router.get("/InsertarTarjeta", async function (req, res, next) {
@@ -26,8 +26,6 @@ router.get("/UpdateProductCarrito/:idProducto", async function (req, res, next) 
   console.log(producto);
   res.render("UpdateProductCarrito" , {tittle : "express" , producto1 : producto})
 });
-
-
 
 router.post("/verifyTarjeta", async function (req, res, next) {
   const token = req.cookies.tokenUser;
@@ -52,7 +50,7 @@ router.post("/verifyregister", async (req, res) => {
         req.body.DNI,
         req.body.Nombres,
         req.body.PrimerApellido,
-        req.body.SegundoApellido,
+        req.body.SegundoApellido, 
         req.body.Ciudad,
         req.body.FechadeNac,
         req.body.Email,

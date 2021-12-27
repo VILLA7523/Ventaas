@@ -5,11 +5,11 @@ const tools = require("../libs/tools");
 
 
 class PedidoModel {
-    async create(DNI , Direccion , ciudad , _ID_Cupon ) {
+    async create(DNI , Direccion) {
         const con = connectionDb.promise();
         const data = await con.query(
-            "call crear_Pedido(? , ? , ? , ? )",
-            [DNI ,  Direccion , ciudad ,  _ID_Cupon]
+            "call crear_Pedido(? , ? )",
+            [DNI , 1]
         );
         if(data){
             return { status: "ok", data : data[0][0]};
