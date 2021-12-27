@@ -12,9 +12,40 @@ router.get("/login", async function (req, res, next) {
 });
 
 router.get("/HacerPedido", async function (req, res, next) {
-  res.render("HacerPedido", { title: "Express"});
+    const token = req.cookies.tokenUser;
+    const data = await UsuarioDb.GetDirecciones(token);
+    res.render("HacerPedido", { title: "Express" , data });
 });
 
+router.get("/InsertarTarjeta", async function (req, res, next) {
+  res.render("InsertarTarjeta", { title: "Express"});
+});
+
+router.get("/UpdateProductCarrito/:idProducto", async function (req, res, next) {
+  const producto = await ProductsDb.getByID(req.params.idProducto);
+  console.log(producto);
+  res.render("UpdateProductCarrito" , {tittle : "express" , producto1 : producto})
+});
+
+
+
+router.post("/verifyTarjeta", async function (req, res, next) {
+  const token = req.cookies.tokenUser;
+  const tarjeta = await UsuarioDb.InsertarTarjeta(
+    req.body.NumeroTarjeta,
+    req.body.CVV,
+    req.body.Nombre,
+    req.body.MMAA,
+    req.body.PrimerApellido,
+    req.body.SegundoApellido,
+    req.body.Email,
+    token
+  );
+  
+  console.log(tarjeta);
+  if (tarjeta) res.redirect("/verifyTarjeta?msg=ok");
+  else res.redirect("/verifyTarjeta?msg=err");
+});
 
 router.post("/verifyregister", async (req, res) => {
     const user = await UsuarioDb.register(
@@ -94,6 +125,18 @@ router.get("/VerProducto/:id", async(req,res)=> {
     }
   })
 
+  router.post("/verifyUpdate/:idProducto", async(req,res)=> {  
+    const token = req.cookies.tokenUser;
+    console.log("comidaaaaaaaaaaaaaaaa",token);
+    const data = await CarritoDb.updateProductsByID(token , req.params.idProducto , req.body.Cantidad);
+    console.log("comidaaaaaaaaaaaaaaaa",data);
+    if (data.status == "ok") {
+        res.redirect("/VerCarrito");
+    } else {
+        res.redirect("/VerCarrito");
+    }
+  })
+
   router.post("/verifyPedido", async(req,res)=> {  
     const token = req.cookies.tokenUser;
     const data = await UsuarioDb.CreatePedido (
@@ -111,6 +154,7 @@ router.get("/VerProducto/:id", async(req,res)=> {
   router.get("/VerCarrito", async(req,res)=> {  
     const token = req.cookies.tokenUser;
     const producto = await CarritoDb.getAllProducts(token);
+    console.log(producto);
     res.render("VerCarrito" , {tittle : "express" , products : producto})
   })
 

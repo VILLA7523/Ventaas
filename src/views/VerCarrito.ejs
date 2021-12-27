@@ -30,7 +30,8 @@
         <ul>
           <% products.forEach(function(product){ %>
               <li>Producto <%= product.Nombre %></li>
-              <a href='/VerProducto/<%= product.ID %>' >Editar</a>
+              <li>Producto <%= product.Cantidad %></li>
+              <a href='/UpdateProductCarrito/<%= product.ID %>' >Editar</a>
               <a href='/DeleteProductdeCarrito/<%= product.ID %>' >Eliminar</a>
           <%  }); %>
         </ul>

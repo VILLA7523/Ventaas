@@ -13,7 +13,7 @@ class CategoriesModel {
     async getAllProductsByCategorie(id)
     {
         const con = connectionDb.promise();
-        const data = await con.query('call get_prod_by_pcategoria(?) ', [id]);
+        const data = await con.query('call get_prods_by_pcategoria(?) ', [id]);
         return data[0][0];
     }
 

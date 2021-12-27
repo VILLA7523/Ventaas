@@ -14,6 +14,31 @@ class UsuarioContactModel {
         );
         return data[0];
     }
+
+    async getAll() {
+        const con = connectionDb.promise();
+        const data = await con.query(
+            "call get_all_usrs()"
+        );
+        return data[0];
+    }
+
+    async searchUsersByFilters(fullname, pais) {
+        const con = connectionDb.promise();
+        const data = await con.query(
+            "call search_usrs_ny_filters(?,?)", [fullname,pais]
+        );
+        return data[0];
+    }
+
+    async GetDirecciones(token)
+    {
+        const con = connectionDb.promise();
+        const data = await con.query(
+            "call getDirecciones(?)", [token]
+        );
+        return data[0];
+    }
 }
 
 module.exports = UsuarioContactModel;

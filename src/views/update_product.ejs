@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Actualizar producto</title>
+</head>
+<body>
+    <h1>Actualizar Producto</h1>
+    <form method="post">
+        <label for="nombre">Nombre:</label> <br>
+        <input type="text" name="nombre" value="<%= data.Nombre %>"> <br>
+        <label for="img">URL de la imagen:</label> <br>
+        <input type="text" name="img" value="<%= data.IMG %>"> <br>
+        <label for="precio">Precio:</label> <br>
+        <input type="text" name="precio" value="<%= data.Precio %>"> <br>
+        <label for="talla">Talla:</label> <br>
+        <input type="text" name="talla" value="<%= data.Talla %>"> <br>
+        <label for="para">Para:</label> <br>
+        <input type="text" name="para" value="<%= data.Para %>"> <br>
+        <label for="stock">Stock:</label> <br>
+        <input type="number" name="stock" value="<%= data.Stock %>"> <br>
+        <label for="categoria">Categoria:</label> <br>
+        <select name="categoria">
+            <option value="<%= data.Categoria %>"><%= data.Categoria %></option> 
+            <option value="Selecciones nacionales">Selecciones nacionales</option> 
+            <option value="Clubes de UEFA">Clubes de UEFA</option> 
+            <option value="Clubes peruanos">Clubes peruanos</option>
+            <option value="10">Fedora</option> 
+            <option value="11">Debian</option> 
+            <option value="12">Suse</option> 
+         </select> <br>
+        <label for="proveedor">Proveedores:</label>
+        <select name="proveedor">
+            <option value="Ropamaniacos">Ropamaniacos</option> 
+            <option value="Camisetitas">Clubes de UEFA</option> 
+            <option value="Clubes peruanos">Clubes peruanos</option>
+            <option value="10">Fedora</option> 
+            <option value="11">Debian</option> 
+            <option value="12">Suse</option> 
+         </select> <br>
+        <input type="submit" value="Actualizar Producto">
+    </form>
+
+</body>
+</html>

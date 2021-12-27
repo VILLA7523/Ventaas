@@ -59,6 +59,14 @@ class ProductsController {
         return dataSearch;
     }
 
+    async createProduct(nombre,img,precio,talla,para,stock,nomcategoria,nomproveedor)
+    {
+        const resultCreateProd = ProductDb.create_product(nombre,img,precio,talla,para,stock,nomcategoria,nomproveedor);
+        await resultCreateProd.catch((err) => {
+            console.log("controller" , err);
+        })
+    }
+
 }
 
 module.exports = ProductsController;

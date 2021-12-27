@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <title>Reporte de Productos</title>
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+        .container {
+        height: 50px;
+        position: relative;
+        border: 0px solid green;
+        }
+
+        .centerr {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>   
+        <h1>Reporte de Ventas por producto</h1>
+        <table class="table center" style="width: 80%;">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">IMG</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Para</th>
+            </tr>
+            <% data.forEach(result=>{ %>
+            <tr>
+                <th scope="row"> <%= result.ID %> </td>
+                <td> <%= result.Nombre %> </td>
+                <td> <img src="<%= result.IMG %>" width="200" height="200"> </td>
+                <td> <%= result.Precio %> </td>
+                <td> <%= result.Talla %> </td>
+                <td> <%= result.Para %> </td>
+                <td> <%= result.Categoria %> </td>
+                <td> <%= result.Ganancia %> </td>>
+            <% }); %>
+        </table>
+        <div class="col-lg-4"></div>
+      </div> 
+  <script src="/public/js/example.js"></script>
+</body>
+</html>

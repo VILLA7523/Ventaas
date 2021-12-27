@@ -37,6 +37,28 @@ class CarritoController {
         console.log("dataProducts" , dataCarrito);
         return dataCarrito;
     }
+
+    async getProductsByID(id_product , token){
+        const resultCarrito = CarritoDb.getProductsByID(id_product , token) ;
+        const dataProduct = await resultCarrito.catch((err) => {
+            console.log("Controller" , err);
+            return null;
+        });
+        console.log("dataProduct" , dataProduct);
+        return dataProduct;
+    }
+
+    async updateProductsByID (token , id_product , cantidad)
+    {
+        const resultCarrito = CarritoDb. updateProductsByID(token , id_product , cantidad) ;
+        const dataCarrito = await resultCarrito.catch((err) => {
+            console.log("Controller" , err);
+            return null;
+        });
+        console.log("dataProducts" , dataCarrito);
+        return dataCarrito;
+    }
+
 }
 
 module.exports = CarritoController;
