@@ -4,46 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <title>Reporte de Productos</title>
+    <style>
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        h1 {
+            text-align: center;
+        }
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="styles/styles_panel.css">
+        body {
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 80px;
+        }
+        .container {
+        height: 50px;
+        position: relative;
+        border: 0px solid green;
+        }
 
+        .centerr {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-    
-
-<!-- products section ends -->
-
-<!-- categories section starts  -->
-
-<section class="categories" id="categories">
-
-    <h1 class="heading"> Mis Compras y Mi carrito <span>categories</span> </h1>
-
-    <div class="box-container">
-        <ul>
-          <% products.forEach(function(product){ %>
-              <li>Producto <%= product.Nombre %></li>
-              <li>Producto <%= product.Cantidad %></li>
-              <a href='/UpdateProductCarrito/<%= product.ID %>' >Editar</a>
-              <a href='/DeleteProductdeCarrito/<%= product.ID %>' >Eliminar</a>
-          <%  }); %>
-        </ul>
-        <a href='/HacerPedido' >Hacer Pedido</a>
-    </div>
-
-</section>
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
-
+        <h1>Productos de Carrito</h1> <br>
+        <table class="table center" style="width: 80%;">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">IMG</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Para</th>
+                <th scope="col">Cantidad</th>
+            </tr>
+            <% products.forEach(result=>{ %>
+            <tr>
+                <th scope="row"> <%= result.ID %> </td>
+                <td> <%= result.Nombre %> </td>
+                <td> <img src="<%= result.IMG %>" width="200" height="200"> </td>
+                <td> <%= result.Precio %> </td>
+                <td> <%= result.Talla %> </td>
+                <td> <%= result.Para %> </td>
+                <td> <%= result.Cantidad %> </td>
+                <td> <a href="/UpdateProductCarrito/<%= result.ID%>">Actualizar</a> </td>
+                <td> <a href="/DeleteProductdeCarrito/<%= result.ID%>">Eliminar</a> </td>
+            </tr>
+            <% }); %>
+        </table>
+        <div class = "row text-center">
+            <div class = "col-md-5 text-center">
+            </div>
+            <div class = "col-md-2 text-center">
+                <a href='/HacerPedido'  >Hacer Pedido</a>
+            </div>
+            <div class = "col-md-5 text-center">
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+      </div> 
+  <script src="/public/js/example.js"></script>
 </body>
 </html>

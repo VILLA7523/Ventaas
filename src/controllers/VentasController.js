@@ -6,10 +6,8 @@ const VentasDb = new VentasModel();
 class VentasController {
     async ventasReporte() {
         const resultVenta = VentasDb.ventasReporte();
-        const data = await resultVenta.catch(err=>{
+        const data = await resultVenta.catch(err=> {
             console.log("controller Error Register", err);
             return null;
     }
-    return data;
-
 }

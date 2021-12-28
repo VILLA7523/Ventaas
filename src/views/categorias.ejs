@@ -17,31 +17,135 @@
 </head>
 <body>
     
+<header class="header">
 
-<!-- products section ends -->
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
 
-<!-- categories section starts  -->
+    <nav class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="/VerCarrito">Carrito de Compras</a>
+        <a href="/productos">Productos</a>
+        <a href="/categorias">Categorias</a>
+        <a href="/VerPedidos">Pedidos</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<div class="container">
+
+</div>
+
+
+<section class="home" id="home">
+
+  
+
+</section>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading">Nuestras <span>Caracteristicas</span> </h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="image/feature-img-1.png" alt="">
+            <h3>fresh and organic</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+        </div>
+
+        <div class="box">
+            <img src="image/feature-img-2.png" alt="">
+            <h3>free delivery</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+        </div>
+
+        <div class="box">
+            <img src="image/feature-img-3.png" alt="">
+            <h3>easy payments</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+        </div>
+
+    </div>
+
+</section>
 
 <section class="categories" id="categories">
 
-    <h1 class="heading"> Categorías de <span>Productos</span> </h1>
+    <h1 class="heading"><span>Camisetas</span> </h1>
+    
+    <div class="box-container">
+        <% categories.forEach(function(categorie){ %>
+        <div class="box">
+            <img src="img/cat-1.png" alt="">
+            <h3>  <%= categorie.Nombre %></h3>
+            <p><%= categorie.Descripcion %></p>
+            <a href='/productosporcategoria/<%= categorie.ID %>' class="btn">Ver productos</a>
+        </div>  
+        <%  }); %>
+    </div>
+
+</section>
+
+<section class="footer">
 
     <div class="box-container">
-        <!-- <div class="box">
-            <img src="img/cat-1.png" alt="">
-            <h3>vegitables</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">shop now</a>
-        </div>  -->
-        <ul>
-          <% categories.forEach(function(categorie){ %>
-              <li>categoria <%= categorie.Nombre %></li>
-              <li>categoria <%= categorie.ID %></li>
-              <li>categoria <%= categorie.Descripcion %></li>
-              <a href='/productosporcategoria/<%= categorie.ID %>' >Ver productos</a>
-          <%  }); %>
-        </ul>
+
+        <div class="box">
+            <h3> groco <i class="fas fa-shopping-basket"></i> </h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="image/payment.png" class="payment-img" alt="">
+        </div>
+
     </div>
+
+    <div class="credit"> created by <span> mr. web designer </span> | all rights reserved </div>
 
 </section>
 
@@ -52,3 +156,6 @@
 
 </body>
 </html>
+<!-- products section ends -->
+
+<!-- categories section starts  -->

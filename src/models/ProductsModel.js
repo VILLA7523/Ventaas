@@ -18,14 +18,6 @@ class ProductsModel {
         );
         return data[0][0][0];
     }
-/*
-    async search_prods_by_category (cat) {
-        const con = connectionDb.promise();
-        const data = await con.query(
-            "call search_prods_by_category(?)", [cat]
-        );
-        return data[0][0];
-    }*/
 
     async create_product(nombre,img,precio,talla,para,stock,nomcategoria,nomproveedor) {
         const con = connectionDb.promise();

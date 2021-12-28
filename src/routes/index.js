@@ -41,8 +41,8 @@ router.post("/verifyTarjeta", async function (req, res, next) {
   );
   
   console.log(tarjeta);
-  if (tarjeta) res.redirect("/verifyTarjeta?msg=ok");
-  else res.redirect("/verifyTarjeta?msg=err");
+  if (tarjeta) res.redirect("/verPedidos");
+  else res.redirect("/verPedidos");
 });
 
 router.post("/verifyregister", async (req, res) => {
@@ -99,7 +99,7 @@ router.get("/categorias" , async (req,res) => {
 router.get("/productosporcategoria/:id", async(req,res)=> {  
     console.log("param" , req.params.id);
     const producto = await ProductsDb.getAllProductsByCategorie(req.params.id);
-    res.render("TablaProductos" , {tittle : "express" , products : producto})
+    res.render("productos" , {tittle : "express" , products : producto})
 });
 
 router.get("/VerProducto/:id", async(req,res)=> {  
@@ -117,9 +117,9 @@ router.get("/VerProducto/:id", async(req,res)=> {
     req.params.idProducto ,
     req.body.Cantidad);
     if (data.status == "ok") {
-        res.redirect("/VerProducto/?msg=ok");
+        res.redirect("/VerCarrito");
     } else {
-        res.redirect("/VerProducto?msg=err");
+        res.redirect("/productos");
     }
   })
 
@@ -139,9 +139,9 @@ router.get("/VerProducto/:id", async(req,res)=> {
     const token = req.cookies.tokenUser;
     const data = await UsuarioDb.CreatePedido (
     token , 
-    req.body.Direccion,
     req.body.Ciudad,
-    1);
+    req.body.Direccion,
+    );
     if (data.status == "ok") {
         res.redirect("/HacerPedido?msg=ok");
     } else {
@@ -167,11 +167,9 @@ router.get("/VerProducto/:id", async(req,res)=> {
     const token = req.cookies.tokenUser;
     const producto = await CarritoDb.deleteProductsByID(token ,req.params.id);
     console.log(producto);
-    res.render("VerCarrito" , {tittle : "express"})
+    res.rendirect("VerCarrito" , {tittle : "express"})
   })
 
-// router.get("/prueba/:id", function(req,res){
-//     console.log("param" , req.params.id);
-// })
+
 
 module.exports = router;

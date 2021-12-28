@@ -57,9 +57,6 @@ class CarritoDeCompras
         }
         return { status: "error"};
     }
-
-
-
 }
 
 module.exports = CarritoDeCompras;

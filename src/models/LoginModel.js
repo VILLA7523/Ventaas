@@ -7,7 +7,7 @@ class LoginModel {
     async authentication (Email , Password)
     {
         const con = connectionDb.promise();
-        const data = await con.query ("call verify_login (?)" , [Email]);        
+        const data = await con.query("call verify_login(?)" , [Email]);        
         if(data != undefined)
         {
             console.log(data);

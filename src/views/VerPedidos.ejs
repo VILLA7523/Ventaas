@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos</title>
+    <title>Tienda</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -17,33 +17,68 @@
 </head>
 <body>
     
+<header class="header">
 
-<!-- products section ends -->
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
 
-<!-- categories section starts  -->
+    <nav class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="/VerCarrito">Carrito de Compras</a>
+        <a href="/productos">Productos</a>
+        <a href="/categorias">Categorias</a>
+        <a href="/VerPedidos">Pedidos</a>
+    </nav>
 
-<section class="categories" id="categories">
-
-    <h1 class="heading"> Mis Compras y Mi carrito <span>categories</span> </h1>
-
-    <div class="box-container">
-        <ul>
-          <% pedidos.forEach(function(pedido){ %>
-              <li>Estado <%= pedido.Estado %></li>
-              <li>Fecha <%= pedido.Fecha %></li>
-              <li>Total <%= pedido.Total %></li>
-          <%  }); %>
-        </ul>
-        <a href='/InsertarTarjeta/' >Cancelar Pedido</a>
-        <a href='/VerifyAnularPedido' >Anular Pedido</a>
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
     </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<div class="container">
+
+</div>
+
+
+<section class="home" id="home">
+
+  
 
 </section>
 
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<!-- home section ends -->
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
+<!-- features section starts  -->
 
-</body>
-</html>
+<section class="features" id="features">
+
+    <h1 class="heading">Mis <span>Pedidos</span> </h1>
+
+    <div class="box-container">
+        <table class="table center" style="width: 100%; font-size: 30px;" >
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Total</th>
+                <th scope="col">Cancelar</th>
+            </tr>
+            <% pedidos.forEach(result=>{ %>
+            <tr>
+                <th scope="row"> <%= result.ID %> </td>
+                <th scope="row"> <%= result.DNI_Usuario %> </td>
+                <th scope="row"> <%= result.Total %> </td>
+               <th><a href='/InsertarTarjeta' >Cancelar</a></th> 
+            </tr>
+            <% }); %>
+        </table>
+    </div>
+
+</section>

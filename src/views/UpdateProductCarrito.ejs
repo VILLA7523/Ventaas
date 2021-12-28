@@ -1,61 +1,76 @@
-<!--<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/stylesheets/style_L.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-  </head>
-  <body>
 
-    <div class="data">
-      <h1>REGISTRARSE</h1>
-      <form action="/verifylogin" method="post">
-        <label for="Email">Email</label>
-        <input id="Email" type="text" name="Email" placeholder="Ingrese sus apellidos">
-        <label for="Password">Contraseña</label>
-        <input id="Password" type="password" name="Password" placeholder="Ingrese sus apellidos">
-        <input type="submit" value="Login">
-      </form>
-    </div>
-  </body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles/styles_l.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
--->
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="styles/styles_panel.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Tienda</title>
+      </head>
+
+      <body>
+<!--            
+<header class="header">
+
+  <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
+
+  <nav class="navbar">
+      <a href="#home">Inicio</a>
+      <a href="/VerCarrito/">Carrito de Compras</a>
+      <a href="/productos/">Productos</a>
+      <a href="/categorias/">Categorias</a>
+      <a href="#review">Reviews</a>
+      <a href="#blogs">Blogs</a>
+  </nav>
+
+  <div class="icons">
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>
+      <div class="fas fa-shopping-cart" id="cart-btn"></div>
+      <div class="fas fa-user" id="login-btn"></div>
+  </div>
+
+  <form action="" class="search-form">
+      <input type="search" id="search-box" placeholder="search here...">
+      <label for="search-box" class="fas fa-search"></label>
+  </form>
+
+</header>
+
+<div class="container">
+
+</div> -->
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="styles/styles_l.css" />
-    <title>Tienda</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="/verifyUpdate/<%= producto1.ID %>" method="post" class="sign-in-form">
-            <h2 class="title"><%= producto1.Nombre %></h2>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input id="Cantidad" name="Cantidad" type="number" placeholder="Cantidad" value="<%= producto1.Cantidad %>" />
+<section class="features mt-5" id="features">
+        <div class="container">
+          <div class="forms-container">
+            <div class="signin-signup text-center">
+              <form action="/verifyUpdate/<%= producto1.ID %>" method="post" class="sign-in-form">   
+                <h2 class="title"><%= producto1.Nombre %></h2>
+                <div class="p-5 input-field">
+                  <i class="fas fa-lock"></i>
+                  <input id="Cantidad" name="Cantidad" type="number" placeholder="Cantidad" />
+                </div>
+                <input type="submit" value="Añadir" class="btn solid" /><br>
+                <a href='/VerCarrito' >Ver Carrito</a><br>
+                <a href='/productos' >Regresar</a>
+              </form>  
+              
             </div>
-            <input type="submit" value="Update" class="btn solid" />
-            <a href='/VerCarrito' >Ver Carrito</a>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-    <script src="js/app.js"></script>
-  </body>
-</html>
+          </div></div>
+</section>
+        <script src="js/app.js"></script>
+      </body>
+    </html>
+ 

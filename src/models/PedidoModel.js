@@ -3,13 +3,12 @@ const router = express.Router();
 const connectionDb = require("../config/dbconnections");
 const tools = require("../libs/tools");
 
-
 class PedidoModel {
-    async create(DNI , Direccion) {
+    async create(DNI ,Ciudad ,  Direccion) {
         const con = connectionDb.promise();
         const data = await con.query(
-            "call crear_Pedido(? , ? )",
-            [DNI , 1]
+            "call crear_Pedido(? , ? , ? )",
+            [DNI , Ciudad , Direccion]
         );
         if(data){
             return { status: "ok", data : data[0][0]};

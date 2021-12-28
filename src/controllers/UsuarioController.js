@@ -53,9 +53,9 @@ class UsuarioController{
        return dataLogin;
      }
 
-     async CreatePedido (token , Direccion )
+     async CreatePedido (token ,Ciudad, Direccion )
      {
-        const resultPedido = PedidoDb.create(token , Direccion);
+        const resultPedido = PedidoDb.create(token , Ciudad ,Direccion);
         const dataPedido = await resultPedido.catch((err)=>{
             console.log("controller Error Login ", err);
             return null;
